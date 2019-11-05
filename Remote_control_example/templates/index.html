@@ -1,19 +1,31 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Control Panel</title>
-    <!-- <script src="include/mobilecheck.js"></script> -->
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="include/knob/knobKnob.css">
-    <script src="include/knob/transform.js"></script>
-    <script src="include/knob/knobKnob.jquery.js"></script>
-    <script src="csmapi_modified.js"></script>
-    
-   </head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Control Panel</title>
+        <!-- <script src="include/mobilecheck.js"></script> -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+        <!-- <link rel="stylesheet" href="include/knob/knobKnob.css"> 
+        <script src="include/knob/transform.js"></script>
+        <script src="include/knob/knobKnob.jquery.js"></script> -->
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'include/knob/knobKnob.css') }}"> 
+        <script src="{{ url_for('static', filename = 'include/knob/transform.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'include/knob/knobKnob.jquery.js') }}"></script>
+        <!--<script src="csmapi_modified.js"></script>-->
+        <script src="{{ url_for('static', filename = 'csmapi_modified.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'SwitchSet.js') }}"></script>
+        <script> 
+            //app.use('/static', express.static('public'));
+            set_device_id('{{ mac_addr }}', {{count}});
+            check_registerion_state('{{ mac_addr }}');
+            output_dfs('{{ mac_addr }}');
+            output_selected_dfs('{{ mac_addr }}');
+          </script>
+       </head>
+       
   <body>
 <TD style="FONT-SIZE: 13px; COLOR:#000000; LINE-HIGHT:50px; FONT-FAMILY:Arial,Helvetica,sans-serif">
 
