@@ -11,8 +11,9 @@ app = Flask(__name__)
 @app.route('/<mac_addr>/<count>/', methods=['GET', 'POST'])
 def SwitchSetCount(mac_addr, count):
     registered_address=mac_addr
+    keypad_count, color_count, button_count, knob_count, switch_count = 0,0,0,0,0
+
     try:
-        s_count=0
         print('mac_addr:',mac_addr)
         profile = csmapi.pull(registered_address, 'profile') #Pull the profile of RemoteControl
         print('Profile:',profile)
@@ -37,11 +38,11 @@ def SwitchSetCount(mac_addr, count):
         print(keypad_count,color_count,button_count,switch_count,knob_count)
 
 
-        return make_response(render_template('index.html', mac_addr=registered_address, keypad_count=keypad_count,color_count=color_count , button_count = button_count, switch_count = switch_count , knob_count = knob_count))
+        return make_response(render_template('index.html', mac_addr=registered_address,keypad_count=keypad_count, color_count=color_count , button_count = button_count, switch_count = switch_count , knob_count = knob_count))
 
     except Exception as e:
         print(e)
-    return make_response(render_template('index.html', mac_addr=registered_address, count=int(count)))
+    return make_response(render_template('index.html', mac_addr=registered_address, keypad_count=keypad_count, color_count=color_count , button_count = button_count, switch_count = switch_count , knob_count = knob_count))
 
     
 

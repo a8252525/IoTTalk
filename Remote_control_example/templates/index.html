@@ -17,6 +17,13 @@
         <!--<script src="csmapi_modified.js"></script>-->
         <script src="{{ url_for('static', filename = 'csmapi_modified.js') }}"></script>
         <script src="{{ url_for('static', filename = 'SwitchSet.js') }}"></script>
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'bootstrap/css/bootstrap-theme.min.css') }}" >
+        <script src="{{ url_for('static', filename = 'bootstrap/js/bootstrap.min.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'bootstrap/css/bootstrap-toggle.min.css') }}">
+        <script src="{{ url_for('static', filename = 'bootstrap/js/bootstrap-toggle.min.js') }}"></script>
+        
         <script> 
             //app.use('/static', express.static('public'));
             set_device_id('{{ mac_addr }}', {{count}});
