@@ -14,8 +14,8 @@ function set_device_id(d_id, count){
     numberOfSwitches = count;
     profile['d_name'] = d_id;
     //for (var index=1; index<=count; index++) profile['df_list'].push('Switch'+String(index));
-    //profile['df_list']=['Keypad1','Keypad2','Keypad3','Keypad4','Keypad5','Keypad6','Keypad7','Keypad8', 'Keypad9','Color-I1','Color-I2','Color-I3','Color-I4','Color-I5','Color-I6','Color-I7','Color-I8','Color-I9', 'Button1','Button2','Button3','Button4','Button5','Button6','Button7','Button8','Button9','Switch1', 'Switch2', 'Switch3', 'Switch4', 'Switch5', 'Switch6', 'Switch7', 'Switch8', 'Switch9','Knob1','Knob2','Knob3','Knob4','Knob5','Knob6','Knob7','Knob8','Knob9']
-    profile['df_list']=['Button1', 'Button2', 'Color-I1', 'Color-I2', 'Keypad1', 'Keypad2', 'Knob1', 'Knob2','Switch1', 'Switch2']
+    profile['df_list']=['Keypad1','Keypad2','Keypad3','Keypad4','Keypad5','Keypad6','Keypad7','Keypad8', 'Keypad9','Color-I1','Color-I2','Color-I3','Color-I4','Color-I5','Color-I6','Color-I7','Color-I8','Color-I9', 'Button1','Button2','Button3','Button4','Button5','Button6','Button7','Button8','Button9','Switch1', 'Switch2', 'Switch3', 'Switch4', 'Switch5', 'Switch6', 'Switch7', 'Switch8', 'Switch9','Knob1','Knob2','Knob3','Knob4','Knob5','Knob6','Knob7','Knob8','Knob9']
+    //profile['df_list']=['Button1', 'Button2', 'Color-I1', 'Color-I2', 'Keypad1', 'Keypad2', 'Knob1', 'Knob2','Switch1', 'Switch2']
     csmapi.set_endpoint(_ENDPOINT);   
 }
 

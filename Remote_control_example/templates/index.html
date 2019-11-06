@@ -23,13 +23,14 @@
             check_registerion_state('{{ mac_addr }}');
             output_dfs('{{ mac_addr }}');
             output_selected_dfs('{{ mac_addr }}');
+            console.log({{keypad_count}},{{color_count}})
           </script>
        </head>
        
   <body>
 <TD style="FONT-SIZE: 13px; COLOR:#000000; LINE-HIGHT:50px; FONT-FAMILY:Arial,Helvetica,sans-serif">
-
-    <legend>Keypad1</legend>
+    {% for i in range(keypad_count) %}
+    <legend>Keypad{{i+1}}</legend>
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[1])">1</button>
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[2])">2</button>
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[3])">3</button> <br>
@@ -42,37 +43,26 @@
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[10])">*</button>
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[0])">0</button>
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[11)">#</button>  <br> <br>
-
-    <legend>Keypad2</legend>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad2',[1])">1</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad2',[2])">2</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad2',[3])">3</button> <br>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad2',[4])">4</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad2',[5])">5</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad2',[6])">6</button> <br>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad2',[7])">7</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad2',[8])">8</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad2',[9])">9</button> <br>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad2',[10])">*</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad2',[0])">0</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad2',[11])">#</button>  <br> <br>
+    {% endfor %}
 
     <legend>Button</legend>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Button1',[1])" style="width:200px;" >Button1</button> <br>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Button2',[2])" style="width:200px;" >Button2</button> <br>
+    {% for i in range(button_count) %}
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Button1',[1])" style="width:200px;" >Button{{i+1}}</button> <br>
+    <!-- <button onclick="csmapi.push('IoTtalk_Control_Panel','','Button2',[2])" style="width:200px;" >Button2</button> <br> -->
+    {% endfor %}
     <br>
 
-    <br>
 
-    <legend>Knob1</legend>
+    <br>
+    {% for i in range(knob_count) %}
+    <legend>Knob{{i+1}}</legend>
     <div style='margin-top:-33px; margin-bottom:15px;'  type='text' role='Knob1' class='knob-container'></div>
+    {% endfor %}
 
-    <legend>Knob2</legend>
-    <div style='margin-top:-33px; margin-bottom:15px;'  type='text' role='Knob2' class='knob-container'></div>
     <br>
 
-
-    <legend>Color-I1</legend>
+    {% for i in range(color_count) %}
+    <legend>Color-I{{i+1}}</legend>
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,0,0])" style="width:100px; height:100px; background-color:#FF0000"></button>
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,85,17])" style="width:100px; height:100px; background-color:#FF5511 "></button>
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,255,0])" style="width:100px; height:100px; background-color:#FFFF00"></button> <br>
@@ -82,19 +72,17 @@
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,0,255])" style="width:100px; height:100px; background-color:#FF00FF"></button>
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,255,255])" style="width:100px; height:100px; background-color:#FFFFFF"></button>
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[0,0,0])" style="width:100px; height:100px; background-color:#000000"></button> <br><br>
-
-    <legend>Color-I2</legend>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I2',[255,0,0])" style="width:100px; height:100px; background-color:#FF0000"></button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I2',[255,85,17])" style="width:100px; height:100px; background-color:#FF5511 "></button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I2',[255,255,0])" style="width:100px; height:100px; background-color:#FFFF00"></button> <br>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I2',[0,255,0])" style="width:100px; height:100px; background-color:#00FF00"></button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I2',[0,0,255])" style="width:100px; height:100px; background-color:#0000FF"></button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I2',[102,0,255])" style="width:100px; height:100px; background-color:#6600FF"></button> <br>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I2',[255,0,255])" style="width:100px; height:100px; background-color:#FF00FF"></button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I2',[255,255,255])" style="width:100px; height:100px; background-color:#FFFFFF"></button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I2',[0,0,0])" style="width:100px; height:100px; background-color:#000000"></button> <br><br>
-
+    {% endfor %}
     <br>
+
+    {% for i in range(switch_count) %}
+    <div class="checkbox">
+        <label>
+	    <input  type="checkbox" data-toggle="toggle" id="Switch{{i+1}}">
+	    <span class = "Switch{{i+1}} h2"> Switch{{i+1}} </span>
+        </label>
+    </div>
+    {% endfor %}
 
 
 
