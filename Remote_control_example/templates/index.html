@@ -23,7 +23,7 @@
         <script src="{{ url_for('static', filename = 'bootstrap/js/bootstrap.min.js') }}"></script>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'bootstrap/css/bootstrap-toggle.min.css') }}">
         <script src="{{ url_for('static', filename = 'bootstrap/js/bootstrap-toggle.min.js') }}"></script>
-        
+
         <script> 
             //app.use('/static', express.static('public'));
             set_device_id('{{ mac_addr }}', {{count}});
@@ -51,8 +51,9 @@
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[0])">0</button>
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[11)">#</button>  <br> <br>
     {% endfor %}
-
+    {% if button_count %}
     <legend>Button</legend>
+    {% endif %}
     {% for i in range(button_count) %}
     <button onclick="csmapi.push('IoTtalk_Control_Panel','','Button1',[1])" style="width:200px;" >Button{{i+1}}</button> <br>
     <!-- <button onclick="csmapi.push('IoTtalk_Control_Panel','','Button2',[2])" style="width:200px;" >Button2</button> <br> -->
