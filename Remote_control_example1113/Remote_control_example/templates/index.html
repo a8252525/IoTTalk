@@ -38,24 +38,24 @@
 <TD style="FONT-SIZE: 13px; COLOR:#000000; LINE-HIGHT:50px; FONT-FAMILY:Arial,Helvetica,sans-serif">
     {% for i in range(keypad_count) %}
     <legend>Keypad{{i+1}}</legend>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[1])" class="btn">1</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[2])" class="btn">2</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[3])" class="btn">3</button> <br>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[4])" class="btn">4</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[5])" class="btn">5</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[6])" class="btn">6</button> <br>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[7])" class="btn">7</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[8])" class="btn">8</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[9])" class="btn">9</button> <br>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[10])" class="btn btn-danger">*</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[0])" class="btn btn-danger">0</button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[11)" class="btn btn-danger">#</button>  <br> <br>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Keypad1',[1])" class="btn">1</button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Keypad1',[2])" class="btn">2</button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Keypad1',[3])" class="btn">3</button> <br>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Keypad1',[4])" class="btn">4</button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Keypad1',[5])" class="btn">5</button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Keypad1',[6])" class="btn">6</button> <br>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Keypad1',[7])" class="btn">7</button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Keypad1',[8])" class="btn">8</button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Keypad1',[9])" class="btn">9</button> <br>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Keypad1',[10])" class="btn btn-danger">*</button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Keypad1',[0])" class="btn btn-danger">0</button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Keypad1',[11)" class="btn btn-danger">#</button>  <br> <br>
     {% endfor %}
     {% if button_count %}
     <legend>Button</legend>
     {% endif %}
     {% for i in range(button_count) %}
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Button1',[1])" style="width:200px;" >Button{{i+1}}</button> <br>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Button1',[1])" style="width:200px;" >Button{{i+1}}</button> <br>
     <!-- <button onclick="csmapi.push('IoTtalk_Control_Panel','','Button2',[2])" style="width:200px;" >Button2</button> <br> -->
     {% endfor %}
     <br>
@@ -71,15 +71,15 @@
 
     {% for i in range(color_count) %}
     <legend>Color-I{{i+1}}</legend>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,0,0])" style="width:100px; height:100px; background-color:#FF0000"></button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,85,17])" style="width:100px; height:100px; background-color:#FF5511 "></button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,255,0])" style="width:100px; height:100px; background-color:#FFFF00"></button> <br>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[0,255,0])" style="width:100px; height:100px; background-color:#00FF00"></button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[0,0,255])" style="width:100px; height:100px; background-color:#0000FF"></button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[102,0,255])" style="width:100px; height:100px; background-color:#6600FF"></button> <br>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,0,255])" style="width:100px; height:100px; background-color:#FF00FF"></button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,255,255])" style="width:100px; height:100px; background-color:#FFFFFF"></button>
-    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[0,0,0])" style="width:100px; height:100px; background-color:#000000"></button> <br><br>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Color-I1',[255,0,0])" style="width:100px; height:100px; background-color:#FF0000"></button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Color-I1',[255,85,17])" style="width:100px; height:100px; background-color:#FF5511 "></button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Color-I1',[255,255,0])" style="width:100px; height:100px; background-color:#FFFF00"></button> <br>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Color-I1',[0,255,0])" style="width:100px; height:100px; background-color:#00FF00"></button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Color-I1',[0,0,255])" style="width:100px; height:100px; background-color:#0000FF"></button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Color-I1',[102,0,255])" style="width:100px; height:100px; background-color:#6600FF"></button> <br>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Color-I1',[255,0,255])" style="width:100px; height:100px; background-color:#FF00FF"></button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Color-I1',[255,255,255])" style="width:100px; height:100px; background-color:#FFFFFF"></button>
+    <button onclick="csmapi.push('{{ mac_addr }}','','Color-I1',[0,0,0])" style="width:100px; height:100px; background-color:#000000"></button> <br><br>
     {% endfor %}
     <br>
 
