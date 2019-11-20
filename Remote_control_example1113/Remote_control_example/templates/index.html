@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Control Panel</title>
+        <!-- <script src="include/mobilecheck.js"></script> -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+        <!-- <link rel="stylesheet" href="include/knob/knobKnob.css"> 
+        <script src="include/knob/transform.js"></script>
+        <script src="include/knob/knobKnob.jquery.js"></script> -->
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'include/knob/knobKnob.css') }}"> 
+        <script src="{{ url_for('static', filename = 'include/knob/transform.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'include/knob/knobKnob.jquery.js') }}"></script>
+        <!--<script src="csmapi_modified.js"></script>-->
+        <script src="{{ url_for('static', filename = 'csmapi_modified.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'SwitchSet.js') }}"></script>
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'bootstrap/css/bootstrap-theme.min.css') }}" >
+        <script src="{{ url_for('static', filename = 'bootstrap/js/bootstrap.min.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'bootstrap/css/bootstrap-toggle.min.css') }}">
+        <script src="{{ url_for('static', filename = 'bootstrap/js/bootstrap-toggle.min.js') }}"></script>
+
+        <script> 
+            //app.use('/static', express.static('public'));
+            set_device_id('{{ mac_addr }}', {{count}});
+            check_registerion_state('{{ mac_addr }}');
+            output_dfs('{{ mac_addr }}');
+            output_selected_dfs('{{ mac_addr }}');
+            console.log({{keypad_count}},{{color_count}})
+          </script>
+       </head>
+       
+  <body>
+<TD style="FONT-SIZE: 13px; COLOR:#000000; LINE-HIGHT:50px; FONT-FAMILY:Arial,Helvetica,sans-serif">
+    {% for i in range(keypad_count) %}
+    <legend>Keypad{{i+1}}</legend>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[1])" class="btn">1</button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[2])" class="btn">2</button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[3])" class="btn">3</button> <br>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[4])" class="btn">4</button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[5])" class="btn">5</button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[6])" class="btn">6</button> <br>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[7])" class="btn">7</button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[8])" class="btn">8</button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[9])" class="btn">9</button> <br>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[10])" class="btn btn-danger">*</button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[0])" class="btn btn-danger">0</button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Keypad1',[11)" class="btn btn-danger">#</button>  <br> <br>
+    {% endfor %}
+    {% if button_count %}
+    <legend>Button</legend>
+    {% endif %}
+    {% for i in range(button_count) %}
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Button1',[1])" style="width:200px;" >Button{{i+1}}</button> <br>
+    <!-- <button onclick="csmapi.push('IoTtalk_Control_Panel','','Button2',[2])" style="width:200px;" >Button2</button> <br> -->
+    {% endfor %}
+    <br>
+
+
+    <br>
+    {% for i in range(knob_count) %}
+    <legend>Knob{{i+1}}</legend>
+    <div style='margin-top:-33px; margin-bottom:15px;'  type='text' role='Knob1' class='knob-container'></div>
+    {% endfor %}
+
+    <br>
+
+    {% for i in range(color_count) %}
+    <legend>Color-I{{i+1}}</legend>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,0,0])" style="width:100px; height:100px; background-color:#FF0000"></button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,85,17])" style="width:100px; height:100px; background-color:#FF5511 "></button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,255,0])" style="width:100px; height:100px; background-color:#FFFF00"></button> <br>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[0,255,0])" style="width:100px; height:100px; background-color:#00FF00"></button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[0,0,255])" style="width:100px; height:100px; background-color:#0000FF"></button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[102,0,255])" style="width:100px; height:100px; background-color:#6600FF"></button> <br>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,0,255])" style="width:100px; height:100px; background-color:#FF00FF"></button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[255,255,255])" style="width:100px; height:100px; background-color:#FFFFFF"></button>
+    <button onclick="csmapi.push('IoTtalk_Control_Panel','','Color-I1',[0,0,0])" style="width:100px; height:100px; background-color:#000000"></button> <br><br>
+    {% endfor %}
+    <br>
+
+    {% for i in range(switch_count) %}
+    <div class="checkbox">
+        <label>
+	    <input  type="checkbox" data-toggle="toggle" id="Switch{{i+1}}">
+	    <span class = "Switch{{i+1}} h2"> Switch{{i+1}} </span>
+        </label>
+    </div>
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
